@@ -1,4 +1,4 @@
-import helper1, vlcplayer, json
+import awsiothelper, vlcplayer, json
 import os, time, pathlib
 
 def cmdHandler(player, cmd, arg):
@@ -52,7 +52,7 @@ def getConf():
 
 if __name__=="__main__":
     conf = getConf()    
-    helper = helper1.helper(customCallback, e='data.iot.us-east-2.amazonaws.com', r=conf['rootCAPath'], c=conf['certificatePath'], k=conf['privateKeyPath'])
+    helper = awsiothelper.helper(customCallback, e='data.iot.us-east-2.amazonaws.com', r=conf['rootCAPath'], c=conf['certificatePath'], k=conf['privateKeyPath'])
     player = vlcplayer.player()
     try:
         while True:
